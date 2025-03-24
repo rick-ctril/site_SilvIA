@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SilvIA</title>
+    <link rel="shortcut icon" type="image/svg" href="assets/img/imgTitle.svg"/>
+
+    <!--link google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chau+Philomene+One:ital@0;1&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <!--link css-->
+    <link rel="stylesheet" href="assets/CSS/style.css">
+
+    <!--link Bootstrap icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <!-- link htmx -->
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.1/dist/htmx.js" integrity="sha384-gpIh5aLQ0qmX8kZdyhsd6jA24uKLkqIr1WAGtantR4KsS97l/NRBvh8/8OYGThAf" crossorigin="anonymous"></script>
+
+    <!-- link aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	
+	<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault(); // Evita o envio padrão do formulário
+
+                const formData = new FormData(form);
+                const data = {
+                    name: formData.get('name'),
+                    email: formData.get('email'),
+                    phone: formData.get('phone'),
+                    message: formData.get('message')
+                };
+
+                try {
+                    const response = await fetch('https://crab.codes/api/send-email', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    });
+
+                    if (response.ok) {
+                        // Handle success (e.g., show a success message)
+                        alert('Formulário enviado com sucesso!');
+                    } else {
+                        // Handle error
+                        alert('Erro ao enviar o formulário.');
+                    }
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('Erro ao enviar o formulário.');
+                }
+            });
+        });
+    </script>
+
+    <!-- Development version -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+    <!-- Production version -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header>
+        <div class="header__principal">
+            <img data-aos="fade-up" data-aos-delay="100" class="img__1" src="assets/img/Group 7.svg" alt="Logo SilvIA"/>        
+        </div> 
+    </header>
+    <main>
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site">
+                        <h1 data-aos="fade-right" data-aos-delay="90">Silvia <span>Tecnologia para Longevidade e Bem-Estar</span></h1>
+                        <p data-aos="fade-right" data-aos-delay="80">SilvIA é uma ferramenta virtual inteligente que auxilia no cuidado contínuo da saúde, promovendo maior adesão do paciente ao seu tratamento e autonomia para pessoas com doenças crônicas, como hipertensão e diabetes. Integrada ao WhatsApp, a plataforma simplifica o monitoramento da saúde e reduz complicações médicas, melhorando a qualidade de vida.</p>
+                        <p data-aos="fade-right" data-aos-delay="70"><strong>Propósito:</strong> Ajudar as pessoas a viverem mais e melhor com o suporte da tecnologia.</p>
+                        <p data-aos="fade-right" data-aos-delay="60"><strong>Base científica:</strong> Desenvolvida com base em estudos sobre adesão ao tratamento, medicina preventiva e inteligência artificial aplicada à saúde.</p>
+                        <p data-aos="fade-right" data-aos-delay="50"><strong>Fácil acesso:</strong>  Funciona diretamente no WhatsApp, sem necessidade de baixar novos aplicativos.</p>
+                        <div class="btn-contato">
+                            <a href="https://w.app/2fhkju" target="_blank">
+                                <button data-aos="fade-right" data-aos-delay="40">Fale Conosco</button>
+                            </a>
+                        </div>
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site">
+                        <img data-aos="zoom-in" data-aos-delay="70" src="assets/img/Group 8.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <!-- Seção com cards -->
+        <section class="secao4" id="sobre">
+            <h2 data-aos="zoom-in" data-aos-delay="70" class="titulo__secao4">Principais Benefícios da <span>Silvia</span><br> Para o Cuidado Continuo</h2>
+            <div class="secao4-div">
+                <!-- Card 1 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-alarm"></i>
+                    <h3>Alarmes programados</h3>
+                    <p class="paragrafo__card">SilvIA lembra você de tomar seus medicamentos e medir a pressão arterial no horário certo.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-capsule"></i>
+                    <h3>Organização de medicações</h3>
+                    <p class="paragrafo__card">Gerencie seus remédios e evite esquecimentos ou interações perigosas.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-heart-pulse"></i>
+                    <h3>Monitoramento da sua saúde</h3>
+                    <p class="paragrafo__card">Acompanhe e registre sua pressão arterial, glicemia e sintomas em tempo real.</p>
+                </div>
+            </div>
+        </section>
+        <section class="secao4" id="sobre">
+            <div class="secao4-div">
+                <!-- Card 4 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-clipboard2-pulse"></i>
+                    <h3>Informações para o seu médico</h3>
+                    <p class="paragrafo__card">Gera laudos para o seu médico e demais profissionais de saúde.</p>
+                </div>
+
+                <!-- Card 5 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-exclamation-triangle"></i>
+                    <h3>Alerta para familiares e rede de apoio 24h</h3>
+                    <p class="paragrafo__card">Envie mensagens de alerta para familiares e rede de apoio a qualquer momento.</p>
+                </div>
+
+                <!-- Card 6 -->
+                <div data-aos="zoom-in" data-aos-delay="70" class="secao4-div-card">
+                    <i class="bi bi-person-arms-up"></i>
+                    <h3>Suporte 24h</h3>
+                    <p class="paragrafo__card">Receba orientações personalizadas para as suas dúvidas a qualquer momento.</p>
+                </div>
+            </div>
+        </section>
+
+
+<!-- SECTION DE TEXTOS -->
+        <section class="topo-do-site" id="secao1">
+            <h2 data-aos="zoom-in" data-aos-delay="70" class="titulo__secao4">Exclusividade que Diferencia a <span>Silvia</span><br> no Mercado</h2>
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1 data-aos="fade-right" data-aos-delay="70">Foco na <br><span>Experiência Usuário</span></h1>
+                        <p data-aos="fade-right" data-aos-delay="70">A SilvIA foi desenvolvida para ser simples e acessível para todas as idades. Com comandos intuitivos e linguagem natural, qualquer pessoa pode interagir sem dificuldades.</p>
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site3">
+                        <img data-aos="fade-left" data-aos-delay="70" src="assets/img/experiência_usuário.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="img-topo-site2" >
+                        <img data-aos="fade-right" data-aos-delay="70" src="assets/img/whatsApp.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                    <div class="txt-topo-site2">
+                        <h1 data-aos="fade-left" data-aos-delay="70">Integração com <span>WhatsApp</span></h1>
+                        <p data-aos="fade-left" data-aos-delay="70">Diferente de aplicativos complexos, a SilvIA funciona diretamente no WhatsApp, tornando o acompanhamento da saúde mais prático e acessível.</p>
+
+                    </div><!-- txt-topo-site -->
+                    
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="txt-topo-site1">
+                        <h1 data-aos="fade-right" data-aos-delay="70"><span>Facilidade e Eficiência:</span> Pensando na Sua Necessidade</h1>
+                        <p data-aos="fade-right" data-aos-delay="70">Nosso objetivo é tornar o cuidado com a saúde mais fácil e eficaz, garantindo que o paciente siga corretamente o tratamento médico.</p>
+                    </div><!-- txt-topo-site -->
+                    <div class="img-topo-site3">
+                        <img data-aos="fade-left" data-aos-delay="70" src="assets/img/Facilidade_Eficiência.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="topo-do-site" id="secao1">
+            <div class="interface">
+                <div class="flex">
+                    <div class="img-topo-site2">
+                        <img data-aos="fade-right" data-aos-delay="70" src="assets/img/seu_cuidado.png" alt="devices">
+                    </div><!-- img-topo-site -->
+                    <div class="txt-topo-site2">
+                        <h1 data-aos="fade-left" data-aos-delay="70">Pensando Sempre no <br><span>Seu Cuidado</span></h1>
+                        <p data-aos="fade-left" data-aos-delay="70">SilvIA se adapta a cada usuário, oferecendo recomendações personalizadas e suporte contínuo baseado no histórico de saúde e estilo de vida.</p>
+
+                    </div><!-- txt-topo-site -->
+                    
+                </div><!-- flex -->
+            </div><!-- interface -->
+        </section><!-- topo-do-site -->
+
+        <section class="formulario" id="secao5">
+            <div class="interface">
+                    <h2 data-aos="zoom-in" data-aos-delay="70" class="titulo__form">FALE AGORA COM A <span>GENTE!</span></h2>
+                <div class="flex">    
+                    <img data-aos="fade-right" data-aos-delay="70" class="img__form" src="assets/img/imgform.svg" alt="Foto telefone"/>
+                    <form action="">
+                        <input data-aos="fade-left" data-aos-delay="110" type="text" name="name" id="name" placeholder="Seu nome" required>
+                        <input data-aos="fade-left" data-aos-delay="100" type="text" name="email" id="email" placeholder="Seu email" required>
+                        <input data-aos="fade-left" data-aos-delay="90" type="text" name="phone" id="phone" placeholder="Seu celular">
+                        <textarea data-aos="fade-left" data-aos-delay="80" name="message" id="message" placeholder="Sua mensagem" required ></textarea>
+                        <div data-aos="fade-left" data-aos-delay="70" class="btn-enviar"><input type="submit" value="ENVIAR"></div>
+                    </form>
+                </div> <!-- flex -->   
+            </div><!-- interface -->
+        </section><!-- formulario -->
+    </main>
+    <footer>
+        <div class="interface">
+            <div class="line-footer">
+                <div class="flex">
+                    <div class="logo-footer">
+                        <img class="logo__footer" src="assets/img/Group 7.svg" alt="Logo footer">
+                    </div><!-- logo-footer -->
+                    <div class="btn-social">
+                        <a href="instagram" target="_blank"><button><i class="bi bi-instagram" id="redes"></i></button></a>
+                        <a href="https://w.app/2fhkju" target="_blank"><button><i class="bi bi-whatsapp" id="redes"></i></button></a>
+                        <a href="https://www.linkedin.com/in/silviamed/" target="_blank"><button><i class="bi bi-linkedin" id="redes"></i></button></a>
+                    </div><!-- btn-social -->
+                </div>
+            </div><!-- line-footer -->   
+            
+        </div><!-- interface -->
+    </footer>
+    <script src="/assets/js/script.js"></script>
+</body>
+</html>
